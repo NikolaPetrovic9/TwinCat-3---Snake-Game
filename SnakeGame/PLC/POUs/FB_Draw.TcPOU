@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.4">
+  <POU Name="FB_Draw" Id="{5ce09652-760b-42f0-83d2-cb8b944d73e9}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_Draw
+VAR
+	bDraw			: BOOL;
+ 	OnTimer 		: TON;
+	OffTimer 		: TON;
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[OnTimer(IN := NOT OffTimer.Q , PT := T#500MS);
+OffTimer(IN := OnTimer.Q , PT := T#500ms);
+bDraw := OnTimer.Q;
+]]></ST>
+    </Implementation>
+    <Method Name="M_Draw" Id="{ac1d1498-a160-4f86-bd37-3831429b1e92}">
+      <Declaration><![CDATA[METHOD M_Draw : BOOL
+VAR_INPUT
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[M_Draw := THIS^.bDraw;]]></ST>
+      </Implementation>
+    </Method>
+    <LineIds Name="FB_Draw">
+      <LineId Id="62" Count="2" />
+      <LineId Id="54" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_Draw.M_Draw">
+      <LineId Id="13" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

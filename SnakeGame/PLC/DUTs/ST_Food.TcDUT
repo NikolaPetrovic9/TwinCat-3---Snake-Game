@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.4">
+  <DUT Name="ST_Food" Id="{1c34751a-6ed6-4851-9e9d-589f6c5e7842}">
+    <Declaration><![CDATA[TYPE ST_Food :
+STRUCT
+	stFoodCoordinate : ST_Coordinate;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.4">
+  <POU Name="GameEngine" Id="{f3d1851b-2b90-41cf-9e90-238148830b16}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM GameEngine
+VAR
+	fbSnake			: FB_Snake;
+	fbFood			: FB_Food;
+	fbDraw			: FB_Draw;
+	
+	updateTimer		: TON;
+	bSnakeMove		: BOOL;
+
+	rTrig			: R_TRIG;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[rTrig(CLK := GVL_Variables.bInit);
+fbSnake(aStSnakeBody:= GVL_Variables.aStSnakeBody, iSnakeLength := GVL_Variables.iSnakeLength);
+fbFood(stFood => GVL_Variables.stFood);
+
+IF rTrig.Q THEN
+	GVL_Variables.aStSnakeBody := GVL_Variables.aStSnakeBodyEmpty;
+	GVL_Variables.aStSnakeBody[1].stBodyCoordinate.iColumnCoordinate := 5;
+	GVL_Variables.aStSnakeBody[1].stBodyCoordinate.iRowCoordinate := 5;
+	GVL_Variables.iSnakeLength := 1;
+	GVL_Variables.bGameOver := FALSE;
+	GVL_Variables.bInit := FALSE;
+END_IF
+
+IF NOT GVL_Variables.bGameOver THEN
+	updateTimer(IN := NOT updateTimer.Q, PT := T#1S);
+	IF updateTimer.Q THEN
+		bSnakeMove := fbSnake.M_Move(GVL_Variables.iSnakeDirection);		
+	END_IF
+
+	IF fbSnake.M_Die() THEN
+		GVL_Variables.bGameOver := TRUE;
+	END_IF
+
+	IF fbSnake.M_Eat(GVL_Variables.stFood) THEN
+		fbFood.M_Generate();
+	END_IF
+END_IF
+
+fbDraw();
+GVL_Variables.bDraw := fbDraw.M_Draw();
+
+	
+		
+
+
+
+
+
+
+
+]]></ST>
+    </Implementation>
+    <LineIds Name="GameEngine">
+      <LineId Id="337" Count="0" />
+      <LineId Id="362" Count="0" />
+      <LineId Id="338" Count="0" />
+      <LineId Id="363" Count="0" />
+      <LineId Id="329" Count="5" />
+      <LineId Id="364" Count="0" />
+      <LineId Id="268" Count="0" />
+      <LineId Id="339" Count="0" />
+      <LineId Id="323" Count="0" />
+      <LineId Id="345" Count="11" />
+      <LineId Id="341" Count="0" />
+      <LineId Id="359" Count="1" />
+      <LineId Id="196" Count="0" />
+      <LineId Id="191" Count="0" />
+      <LineId Id="50" Count="0" />
+      <LineId Id="106" Count="1" />
+      <LineId Id="120" Count="0" />
+      <LineId Id="118" Count="0" />
+      <LineId Id="51" Count="0" />
+      <LineId Id="35" Count="0" />
+      <LineId Id="104" Count="0" />
+      <LineId Id="34" Count="0" />
+      <LineId Id="23" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

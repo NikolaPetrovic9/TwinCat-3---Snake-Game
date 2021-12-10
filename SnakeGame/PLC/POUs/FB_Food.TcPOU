@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.4">
+  <POU Name="FB_Food" Id="{5a554aa6-ff02-47a3-af06-484f1ba4dfb6}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_Food
+VAR_OUTPUT
+	stFood 				: ST_Food;
+END_VAR
+VAR
+	randomColumnNumGenerator :	DRAND;
+	randomRowNumGenerator 	:	DRAND;
+	iRandColumn				:	INT;
+ 	iRandRow				:	INT;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[randomColumnNumGenerator(Seed:= iRandColumn+10);
+randomRowNumGenerator(Seed:= iRandRow);
+
+iRandColumn := LREAL_TO_INT(randomColumnNumGenerator.Num * 9);
+iRandRow 	:= LREAL_TO_INT(randomRowNumGenerator.Num * 9);]]></ST>
+    </Implementation>
+    <Method Name="M_Generate" Id="{cafbc78c-a1d5-4f15-8b6b-3c5dbd0bab40}">
+      <Declaration><![CDATA[METHOD M_Generate : BOOL;
+VAR_INPUT
+	
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[M_Generate := FALSE;
+	stFood.stFoodCoordinate.iColumnCoordinate := iRandColumn; 
+	stFood.stFoodCoordinate.iRowCoordinate := iRandRow; 
+M_Generate := TRUE;
+
+
+
+]]></ST>
+      </Implementation>
+    </Method>
+    <LineIds Name="FB_Food">
+      <LineId Id="43" Count="0" />
+      <LineId Id="28" Count="0" />
+      <LineId Id="44" Count="0" />
+      <LineId Id="15" Count="0" />
+      <LineId Id="17" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_Food.M_Generate">
+      <LineId Id="23" Count="0" />
+      <LineId Id="17" Count="0" />
+      <LineId Id="24" Count="0" />
+      <LineId Id="22" Count="0" />
+      <LineId Id="18" Count="2" />
+      <LineId Id="11" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

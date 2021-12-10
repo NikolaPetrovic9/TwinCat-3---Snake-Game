@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.4">
+  <POU Name="FB_Snake" Id="{3c39ea80-2fff-43f9-91a7-1fc592c0813c}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_Snake
+VAR_IN_OUT
+	//first item is head
+	aStSnakeBody	: ARRAY[1..GVL_Constants.SNAKE_LENGTH] OF ST_SnakePart;
+	iSnakeLength 	: INT;
+END_VAR
+VAR_OUTPUT
+END_VAR
+VAR
+	
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[]]></ST>
+    </Implementation>
+    <Method Name="M_Die" Id="{620e688c-30e0-4e36-8e15-483fe31cd1f5}">
+      <Declaration><![CDATA[METHOD M_Die : BOOL
+VAR_INPUT
+END_VAR
+
+VAR
+	iPartIndex: INT;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[{warning disable C0371}
+IF NOT __ISVALIDREF(aStSnakeBody) AND NOT __ISVALIDREF(iSnakeLength) THEN
+     RETURN;
+END_IF
+
+M_Die := FALSE;
+IF aStSnakeBody[1].stBodyCoordinate.iColumnCoordinate > 9 OR aStSnakeBody[1].stBodyCoordinate.iColumnCoordinate < 0 OR
+	aStSnakeBody[1].stBodyCoordinate.iRowCoordinate < 0 OR aStSnakeBody[1].stBodyCoordinate.iRowCoordinate > 9 THEN
+	M_Die := TRUE;
+END_IF
+
+IF iSnakeLength >= 4 THEN
+	FOR iPartIndex := iSnakeLength TO 2 BY -1 DO
+		IF aStSnakeBody[1].stBodyCoordinate.iColumnCoordinate = aStSnakeBody[iPartIndex].stBodyCoordinate.iColumnCoordinate AND
+			aStSnakeBody[1].stBodyCoordinate.iRowCoordinate = aStSnakeBody[iPartIndex].stBodyCoordinate.iRowCoordinate THEN
+			M_Die := TRUE;
+		END_IF
+	END_FOR
+END_IF
+
+{warning restore C0371}]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="M_Eat" Id="{7391ae2d-e7c4-48a5-8d76-0e7f4e7388f4}">
+      <Declaration><![CDATA[//if head cordinate and food cordinate match then snake has eaten the food and got larger
+METHOD PUBLIC M_Eat : BOOL
+VAR_INPUT
+	stFood		: ST_Food;
+END_VAR
+VAR
+	bHasEaten	: BOOL;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[{warning disable C0371}
+IF NOT __ISVALIDREF(aStSnakeBody) AND NOT __ISVALIDREF(iSnakeLength) THEN
+     RETURN;
+END_IF
+
+IF aStSnakeBody[1].stBodyCoordinate.iColumnCoordinate = stFood.stFoodCoordinate.iColumnCoordinate AND
+	aStSnakeBody[1].stBodyCoordinate.iRowCoordinate = stFood.stFoodCoordinate.iRowCoordinate THEN	
+	bHasEaten := TRUE;
+ELSE
+	bHasEaten := FALSE;
+END_IF
+
+IF bHasEaten AND iSnakeLength <= GVL_Constants.SNAKE_LENGTH THEN
+	iSnakeLength := iSnakeLength + 1;
+END_IF
+
+M_Eat := bHasEaten;
+{warning restore C0371}]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="M_Move" Id="{e591df98-d7b0-47dc-8b98-5284189e1612}">
+      <Declaration><![CDATA[METHOD PUBLIC M_Move : BOOL
+VAR_INPUT
+	iHeadDirection : INT;
+END_VAR
+
+VAR
+	bMoved			: BOOL;
+	iPartIndex		: INT;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[{warning disable C0371}
+M_Move := FALSE;
+IF NOT __ISVALIDREF(THIS^.aStSnakeBody) AND NOT __ISVALIDREF(iSnakeLength) THEN
+     RETURN;
+END_IF
+
+FOR iPartIndex := iSnakeLength+1 TO 2 BY -1 DO
+	aStSnakeBody[iPartIndex].stBodyCoordinate := aStSnakeBody[iPartIndex - 1].stBodyCoordinate;
+END_FOR
+
+IF iHeadDirection = 1 THEN	
+	bMoved	:= TRUE;
+	aStSnakeBody[1].stBodyCoordinate.iColumnCoordinate	:= aStSnakeBody[1].stBodyCoordinate.iColumnCoordinate - 1;
+ELSIF iHeadDirection = 4  THEN
+	bMoved	:= TRUE;
+	aStSnakeBody[1].stBodyCoordinate.iColumnCoordinate := aStSnakeBody[1].stBodyCoordinate.iColumnCoordinate + 1;
+ELSIF iHeadDirection = 3  THEN
+	bMoved	:= TRUE;
+	aStSnakeBody[1].stBodyCoordinate.iRowCoordinate	:=  aStSnakeBody[1].stBodyCoordinate.iRowCoordinate + 1;
+ELSIF iHeadDirection = 2 THEN
+	bMoved	:= TRUE;
+	aStSnakeBody[1].stBodyCoordinate.iRowCoordinate	:= aStSnakeBody[1].stBodyCoordinate.iRowCoordinate - 1;
+END_IF
+M_Move := bMoved;
+{warning restore C0371}]]></ST>
+      </Implementation>
+    </Method>
+    <LineIds Name="FB_Snake">
+      <LineId Id="9" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_Snake.M_Die">
+      <LineId Id="16" Count="3" />
+      <LineId Id="15" Count="0" />
+      <LineId Id="14" Count="0" />
+      <LineId Id="36" Count="0" />
+      <LineId Id="39" Count="1" />
+      <LineId Id="38" Count="0" />
+      <LineId Id="35" Count="0" />
+      <LineId Id="21" Count="0" />
+      <LineId Id="24" Count="4" />
+      <LineId Id="22" Count="1" />
+      <LineId Id="7" Count="0" />
+      <LineId Id="13" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_Snake.M_Eat">
+      <LineId Id="39" Count="0" />
+      <LineId Id="37" Count="1" />
+      <LineId Id="36" Count="0" />
+      <LineId Id="35" Count="0" />
+      <LineId Id="5" Count="0" />
+      <LineId Id="11" Count="1" />
+      <LineId Id="9" Count="1" />
+      <LineId Id="8" Count="0" />
+      <LineId Id="20" Count="0" />
+      <LineId Id="19" Count="0" />
+      <LineId Id="24" Count="0" />
+      <LineId Id="22" Count="0" />
+      <LineId Id="26" Count="0" />
+      <LineId Id="25" Count="0" />
+      <LineId Id="40" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_Snake.M_Move">
+      <LineId Id="31" Count="0" />
+      <LineId Id="17" Count="0" />
+      <LineId Id="29" Count="1" />
+      <LineId Id="22" Count="0" />
+      <LineId Id="39" Count="0" />
+      <LineId Id="47" Count="0" />
+      <LineId Id="51" Count="0" />
+      <LineId Id="63" Count="0" />
+      <LineId Id="65" Count="12" />
+      <LineId Id="25" Count="0" />
+      <LineId Id="16" Count="0" />
+      <LineId Id="32" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

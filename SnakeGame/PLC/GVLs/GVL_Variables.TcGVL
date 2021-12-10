@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.4">
+  <GVL Name="GVL_Variables" Id="{fd3061b2-59b4-4e82-a481-6d165ddc43ab}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+VAR_GLOBAL 
+	aStSnakeBody		: ARRAY[1..GVL_Constants.SNAKE_LENGTH] OF ST_SnakePart;
+	aStSnakeBodyEmpty	: ARRAY[1..GVL_Constants.SNAKE_LENGTH] OF ST_SnakePart;
+	iSnakeLength		: INT;
+	iSnakeDirection 	: INT;
+	bDraw				: BOOL;
+	bInit				: BOOL := FALSE;
+	
+	bGameOver			: BOOL;
+	stFood				: ST_Food;
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>

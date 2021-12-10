@@ -1,0 +1,332 @@
+﻿<div id="Desktop" data-tchmi-type="TcHmi.Controls.System.TcHmiView" data-tchmi-top="0" data-tchmi-left="0" data-tchmi-width-mode="Value" data-tchmi-min-width-unit="px" data-tchmi-height-mode="Value" data-tchmi-min-height-unit="px" data-tchmi-grid-column-index="1" data-tchmi-height="100" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-height-unit="%" data-tchmi-max-height-unit="px" data-tchmi-max-width-unit="px" data-tchmi-top-unit="%" data-tchmi-left-unit="%">
+    <div id="ViewDesktopBeckhoffLogo" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiImage" data-tchmi-src="Images/Beckhoff_Logo.svg" data-tchmi-left="5" data-tchmi-top="20" data-tchmi-width="194" data-tchmi-height="57">
+
+    </div>
+    <div id="TcHmiGrid" data-tchmi-type="TcHmi.Controls.System.TcHmiGrid" data-tchmi-height="687" data-tchmi-height-unit="px" data-tchmi-left="30" data-tchmi-left-unit="%" data-tchmi-top="15" data-tchmi-top-unit="%" data-tchmi-width="763" data-tchmi-width-unit="px" data-tchmi-is-enabled="true" data-tchmi-cell-wrap="false" data-tchmi-grid-column-index="0" data-tchmi-height-mode="Value" data-tchmi-width-mode="Value">
+
+
+        <script data-tchmi-target-attribute="data-tchmi-column-options" type="application/json">
+            [
+            {
+            "width": 1.0,
+            "widthUnit": "factor",
+            "widthMode": "Value",
+            "maxWidthUnit": "px",
+            "minWidthUnit": "px",
+            "overflow": false
+            },
+            {
+            "width": 1.0,
+            "widthUnit": "factor",
+            "widthMode": "Value",
+            "maxWidthUnit": "px",
+            "minWidthUnit": "px",
+            "overflow": false
+            },
+            {
+            "width": 1.0,
+            "widthUnit": "factor",
+            "widthMode": "Value",
+            "maxWidthUnit": "px",
+            "minWidthUnit": "px",
+            "overflow": false
+            },
+            {
+            "width": 1.0,
+            "widthUnit": "factor",
+            "widthMode": "Value",
+            "maxWidthUnit": "px",
+            "minWidthUnit": "px",
+            "overflow": false
+            },
+            {
+            "width": 1.0,
+            "widthUnit": "factor",
+            "widthMode": "Value",
+            "maxWidthUnit": "px",
+            "minWidthUnit": "px",
+            "overflow": false
+            },
+            {
+            "width": 1.0,
+            "widthUnit": "factor",
+            "widthMode": "Value",
+            "maxWidthUnit": "px",
+            "minWidthUnit": "px",
+            "overflow": false
+            },
+            {
+            "width": 1.0,
+            "widthUnit": "factor",
+            "widthMode": "Value",
+            "maxWidthUnit": "px",
+            "minWidthUnit": "px",
+            "overflow": false
+            },
+            {
+            "width": 1.0,
+            "widthUnit": "factor",
+            "widthMode": "Value",
+            "maxWidthUnit": "px",
+            "minWidthUnit": "px",
+            "overflow": false
+            },
+            {
+            "width": 1.0,
+            "widthUnit": "factor",
+            "widthMode": "Value",
+            "maxWidthUnit": "px",
+            "minWidthUnit": "px",
+            "overflow": false
+            },
+            {
+            "width": 1.0,
+            "widthUnit": "factor",
+            "widthMode": "Value",
+            "maxWidthUnit": "px",
+            "minWidthUnit": "px",
+            "overflow": false
+            }
+            ]
+        </script>
+
+        <script data-tchmi-target-attribute="data-tchmi-row-options" type="application/json">
+            [
+            {
+            "height": 1.0,
+            "heightUnit": "factor",
+            "heightMode": "Value",
+            "maxHeightUnit": "px",
+            "minHeightUnit": "px",
+            "overflow": false
+            },
+            {
+            "height": 1.0,
+            "heightUnit": "factor",
+            "heightMode": "Value",
+            "maxHeightUnit": "px",
+            "minHeightUnit": "px",
+            "overflow": false
+            },
+            {
+            "height": 1.0,
+            "heightUnit": "factor",
+            "heightMode": "Value",
+            "maxHeightUnit": "px",
+            "minHeightUnit": "px",
+            "overflow": false
+            },
+            {
+            "height": 1.0,
+            "heightUnit": "factor",
+            "heightMode": "Value",
+            "maxHeightUnit": "px",
+            "minHeightUnit": "px",
+            "overflow": false
+            },
+            {
+            "height": 1.0,
+            "heightUnit": "factor",
+            "heightMode": "Value",
+            "maxHeightUnit": "px",
+            "minHeightUnit": "px",
+            "overflow": false
+            },
+            {
+            "height": 1.0,
+            "heightUnit": "factor",
+            "heightMode": "Value",
+            "maxHeightUnit": "px",
+            "minHeightUnit": "px",
+            "overflow": false
+            },
+            {
+            "height": 1.0,
+            "heightUnit": "factor",
+            "heightMode": "Value",
+            "maxHeightUnit": "px",
+            "minHeightUnit": "px",
+            "overflow": false
+            },
+            {
+            "height": 1.0,
+            "heightUnit": "factor",
+            "heightMode": "Value",
+            "maxHeightUnit": "px",
+            "minHeightUnit": "px",
+            "overflow": false
+            },
+            {
+            "height": 1.0,
+            "heightUnit": "factor",
+            "heightMode": "Value",
+            "maxHeightUnit": "px",
+            "minHeightUnit": "px",
+            "overflow": false
+            },
+            {
+            "height": 1.0,
+            "heightUnit": "factor",
+            "heightMode": "Value",
+            "maxHeightUnit": "px",
+            "minHeightUnit": "px",
+            "overflow": false
+            }
+            ]
+        </script>
+
+        <script data-tchmi-target-attribute="data-tchmi-cell-options" type="application/json">
+            []
+        </script>
+
+        <script data-tchmi-target-attribute="data-tchmi-border-width" type="application/json">
+            {
+            "left": 1,
+            "right": 1,
+            "top": 1,
+            "bottom": 1,
+            "leftUnit": "px",
+            "rightUnit": "px",
+            "topUnit": "px",
+            "bottomUnit": "px"
+            }
+        </script>
+
+
+
+        <script data-tchmi-target-attribute="data-tchmi-border-style" type="application/json">
+            {
+            "left": "Solid",
+            "right": "Solid",
+            "top": "Solid",
+            "bottom": "Solid"
+            }
+        </script>
+
+
+
+
+
+        <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "%s%PLC1.GVL_Variables.bDraw|Interval=2%/s%",
+    "actions": [
+      {
+        "objectType": "Function",
+        "active": true,
+        "fn": "TcHmi.Functions.Snake_HMI.DrawFood",
+        "fnParams": [
+          {
+            "objectType": "Symbol",
+            "valueType": "tchmi:server#/definitions/PLC1.ST_Food",
+            "symbolExpression": "%s%PLC1.GVL_Variables.stFood%/s%"
+          }
+        ],
+        "asyncWait": true
+      },
+      {
+        "objectType": "Function",
+        "active": true,
+        "fn": "TcHmi.Functions.Snake_HMI.DrawSnake",
+        "fnParams": [
+          {
+            "objectType": "Symbol",
+            "valueType": "tchmi:server#/definitions/PLC1.ARRAY (1..10) OF ST_SnakePart",
+            "symbolExpression": "%s%PLC1.GVL_Variables.aStSnakeBody|Interval=2%/s%"
+          },
+          {
+            "objectType": "Symbol",
+            "valueType": "tchmi:general#/definitions/INT",
+            "symbolExpression": "%s%PLC1.GVL_Variables.iSnakeLength%/s%"
+          },
+          {
+            "objectType": "Symbol",
+            "valueType": "tchmi:general#/definitions/INT",
+            "symbolExpression": "%s%PLC1.GVL_Constants.SNAKE_LENGTH%/s%"
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  },
+  {
+    "event": "%s%PLC1.GVL_Variables.bGameOver%/s%",
+    "actions": [
+      {
+        "objectType": "Condition",
+        "active": true,
+        "parts": [
+          {
+            "if": [
+              {
+                "compare1": {
+                  "objectType": "Symbol",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "symbolExpression": "%s%PLC1.GVL_Variables.bGameOver%/s%"
+                },
+                "compare2": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "value": true
+                },
+                "compareOperator": "==",
+                "logic": null
+              }
+            ],
+            "then": [
+              {
+                "objectType": "JavaScript",
+                "active": true,
+                "sourceLines": [
+                  "swal({",
+                  "  title: \"Game Over!\",",
+                  "  text: \"Do you want to play again?\",",
+                  "  icon: \"warning\",",
+                  "  buttons: true,",
+                  "  dangerMode: true,",
+                  "})",
+                  ".then((willDelete) => {",
+                  "  if (willDelete) {",
+                  "\tTcHmi.Symbol.writeEx(\"%s%PLC1.GVL_Variables.bInit%/s%\", 1); ",
+                  "\twindow.location.reload();\t",
+                  "    swal(\"Game Started!\", {",
+                  "      icon: \"success\",",
+                  "    });",
+                  "  } else {",
+                  "\tTcHmi.Symbol.writeEx(\"%s%PLC1.GVL_Variables.bInit%/s%\", 0);   ",
+                  "    swal(\"Game Ended!\");",
+                  "  }",
+                  "});"
+                ],
+                "injectContextObject": false,
+                "asyncWait": true,
+                "waitMode": "Synchronous"
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%s%PLC1.GVL_Variables.bInit%/s%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "value": false
+                },
+                "asyncWait": true
+              }
+            ]
+          },
+          {
+            "else": []
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+    </div>
+    <div id="TcHmiTextblock" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="50" data-tchmi-height-unit="px" data-tchmi-left="30" data-tchmi-left-unit="%" data-tchmi-text="%f%&quot;Score: &quot; + (%s%PLC1.GVL_Variables.iSnakeLength%/s%-1)%/f%" data-tchmi-top="5" data-tchmi-top-unit="%" data-tchmi-width="180" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size-unit="%" data-tchmi-text-font-size="350">
+    </div>
+</div>
